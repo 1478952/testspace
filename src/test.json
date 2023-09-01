@@ -1,0 +1,100 @@
+{
+  "actor": {
+    // launch 시 query param에 생성
+    "objectType": "Agent",
+    "name": "Learner's Name",
+    "account": {
+      "homePage": "http://example.org/",
+      "name": "Learner"
+    }
+  },
+  "verb": {
+    "id": "https://w3id.org/xapi/video/verbs/played",
+    "display": {
+      "en": "played"
+    }
+  },
+  "object": {
+    "objectType": "Activity",
+    "id": "https://class.whalespace.io/bubblecon-guide/lecture/1639588/?isDesc=false", // 콘텐츠 고유 id *****
+    "definition": {
+      "name": {
+        "en-US": "lecture 명" // lecture 명 *****
+      },
+      "description": {
+        "en-US": null
+      },
+      "type": "http://activitystrea.ms/schema/1.0/collection", // *****
+      "extensions": {
+        "https://class.whalespace.io/classes/class/chapters/chapter/chapter-id": 1281367, // 수업 공통 *****
+        "https://class.whalespace.io/classes/class/chapters/chapter/chapter-name": "1월 4일 수업", // 수업 공통 *****
+        "https://class.whalespace.io/classes/class/chapters/chapter/lectures/lecture/lecture-type": "lecture", // 수업 공통 *****
+        "https://class.whalespace.io/classes/class/chapters/chapter/lectures/lecture/material-type": "movie", // 컨텐츠 개인 *****
+        "https://class.whalespace.io/classes/class/chapters/chapter/lectures/lecture/movie-name": "movie-name", // 컨텐츠 개인 *****
+        "https://class.whalespace.io/classes/class/chapters/chapter/lectures/lecture/material-order": 2 // 컨텐츠 개인 *****
+      }
+    },
+    "context": {
+      // context 부분은 다 받아야할듯합니다 ********************
+      "instructor": {
+        "registration": "uuid"
+      },
+      "revision": 1.0,
+      "platform": "웨일클래스 url",
+      "contextActivity": {
+        "parent": [
+          {
+            "objectType": "Activity",
+            "id": "https://class.whalespace.io/data2/lectures/455106",
+            "definition": {
+              "name": {
+                "en-US": "클래스명"
+              },
+              "description": {
+                "en-US": null
+              }
+            }
+          }
+        ]
+      },
+      "extensions": {
+        "https://class.whalespace.io/classes/class/period/startdate": "2023.6.1", //클래스 기간_시작
+        "https://class.whalespace.io/classes/clss/period/enddate": "2023.6.23", // 클래스 기간_종료
+        "https://class.whalespace.io/classes/class/certificate": true, // 수료증 발급
+        "https://class.whalespace.io/classes/class-name": "웨일클래스 사용자 가이드", // 클래스 이름
+        "https://class.whalespace.io/classes/class-id": 95389, // 클래스 ID
+        "https://class.whalespace.io/classes/class/address": "?", // 클래스주소
+        "https://class.whalespace.io/classes/class/type": "group", // 클래스타입
+        "https://class.whalespace.io/classes/class/school-level": "초등학교", // 학교 급
+        "https://class.whalespace.io/classes/class/subject": "국어, 영어", // 과목
+        "https://class.whalespace.io/classes/class/subject-progress": 0.9, // 학습완료
+        "https://class.whalespace.io/classes/class/subject-progress-type": "rate", // 학습완료 측정 방법
+        "https://class.whalespace.io/classes/class/chapters/chapter/lectures/lecture/period-set/startdate": "2023-01-01T00:00:00Z", // 학습 시간_시작
+        "https://class.whalespace.io/classes/class/chapters/chapter/lectures/lecture/period-set/enddate": "2023-01-13T13:00:00Z", // 학습 시간_종료
+        "https://class.whalespace.io/classes/class/chapters/chapter/lectures/lecture/tag-subject": "수학", // 대표 과목
+        "https://class.whalespace.io/classes/class/chapters/chapter/lectures/lecture/tag": "첫학기", // 태그
+        "https://class.whalespace.io/classes/class/chapters/chapter/lectures/lecture/comment": "?", // 댓글
+        "https://class.whalespace.io/classes/class/chapters/chapter/lectures/lecture/reply": "?", // 대댓글
+        "https://class.whalespace.io/classes/class/chapters/chapter/lectures/lecture/comment-like": true // 댓글 좋아요
+      }
+    }
+  },
+  "result": {
+    "success": false, // 진도율
+    "completion": false, // 과정 진도율
+    "duration": "PT2H5M22S", // 콘텐츠 학습 총 누적시간 ISO 8601 Duration 포멧
+    "score": {
+      "scaled": 0.7,
+      "raw": 70,
+      "max": 100,
+      "min": 50
+    },
+    "extensions": {
+      "https://class.whalespace.io/classes/class/chapters/chapter/chapter-id": 1281367, // 과정 ID *****
+      "https://class.whalespace.io/classes/class/chapters/chapter/chapter-name": "1월 4일 수업", // 과정 명 *****
+      "https://class.whalespace.io/classes/class/chapters/chapter/lectures/lecture/attempt": 2, // 학습 시도 횟수 *****
+      "https://class.whalespace.io/classes/class/chapters/chapter/lectures/lecture/session_time": "PT1H5M22S", // 페이지에 머무른 시간
+      "https://class.whalespace.io/chapters/classes/class/chapter/lectures/lecture/material/attempt": 1 // matrial 학습시도 횟수 *****
+    }
+  }
+}

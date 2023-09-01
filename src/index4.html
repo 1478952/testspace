@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- https 허용 -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
+    <title>iframe test</title>
+  </head>
+  <body>
+    <form name="openForm">
+      <input type="hidden" name="uno" value="1" />
+      <input type="hidden" name="uid" value="test" />
+      <input
+        type="hidden"
+        name="pageId"
+        value="808b85a9-367e-41d1-bc1d-1be35504e9d2"
+      />
+      <input type="hidden" name="cornerId" value="1" />
+      <input type="hidden" name="lessonId" value="279" id="lessonId" />
+    </form>
+    <form name="openForm2">
+      <input type="hidden" name="uno" value="1" />
+      <input type="hidden" name="uid" value="test" />
+      <input
+        type="hidden"
+        name="pageId"
+        value="808b85a9-367e-41d1-bc1d-1be35504e9d2"
+      />
+      <input type="hidden" name="cornerId" value="1" />
+      <input type="hidden" name="lessonId" value="280" />
+      <!-- <input type="hidden" name="lessonId" value="1" /> -->
+    </form>
+    <button onclick="open_window_post()">as-is 저작도구</button
+    ><button onclick="open_window_post1(279)">모노레일 view (뷰잉)</button
+    ><button onclick="open_window_post1(280)">모노레일 view (문제)</button
+    ><button onclick="open_window_post2()">모노레일 creator</button>
+    <iframe
+      allow="microphone *"
+      name="bubbleIFrm"
+      src=""
+      frameborder="0"
+      allowfullscreen=""
+      webkitallowfullscreen=""
+      mozallowfullscreen=""
+      style="width: 100%; min-height: 600px"
+    ></iframe>
+  </body>
+  <script type="text/javascript">
+    function receiveMessage(event) {
+      console.log("receiveMessage =====================");
+      console.log(event);
+
+      if (event.origin == "https://make.caihong.co.kr") {
+        location.reload;
+      }
+    }
+    window.addEventListener("message", receiveMessage, false);
+    const iframeElement = document.querySelector("#bubbleIFrm");
+    function open_window_post() {
+      var url = "http://md-admin.bubblecon.io/v1/bubble-player";
+      var option = "resizable=yes";
+      window.open(url, "openForm", option);
+      var myForm = document.openForm;
+      myForm.action = url;
+      myForm.method = "post";
+      myForm.target = "openForm";
+      myForm.submit();
+    }
+    function open_window_post1(lesson_id) {
+      var url = "http://md-admin.bubblecon.io/v2/bubble-player";
+      const params = {
+        uno: "5567412",
+        uid: "ctest100",
+        applId: "1",
+        courseId: "1",
+        subjectId: "1",
+        lessonId: lesson_id,
+        courseName: "코스",
+        lessonName: "레슨",
+        type: "lesson",
+        envlCatgYn: "N",
+      };
+      const tmpForm = document.createElement("form");
+      tmpForm.method = "post";
+      tmpForm.target = "bubbleIFrm";
+      tmpForm.action = url;
+      document.body.append(tmpForm);
+      for (const key in params) {
+        const value = params[key];
+        objs = document.createElement("input");
+        objs.type = "hidden";
+        objs.name = key;
+        objs.value = value;
+        tmpForm.append(objs);
+      }
+      tmpForm.submit();
+      tmpForm.remove();
+    }
+    function open_window_post2() {
+      var url = "http://md-admin.bubblecon.io/v2/bubble-creator";
+      var option = "resizable=yes";
+      window.open(url, "openForm2", option);
+      var myForm = document.openForm2;
+      myForm.action = url;
+      myForm.method = "get";
+      myForm.target = "openForm2";
+      myForm.submit();
+    }
+  </script>
+</html>

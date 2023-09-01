@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <video src="asd" class="bbc-contents" data-contenttype="video"></video>
+    <video src="asd" class="bbc-contents" data-contenttype="video"></video>
+    <video src="asd" class="bbc-contents" data-contenttype="video"></video>
+    <image src="asd" class="bbc-contents" data-contenttype="image"></image>
+    <image src="asd" class="bbc-contents" data-contenttype="image"></image>
+    <image src="asd" class="bbc-contents" data-contenttype="image"></image>
+    <script>
+      const contents = document.querySelectorAll(".bbc-contents");
+      for (let index = 0; index < contents.length; index++) {
+        console.log("contents", contents);
+        const cont = contents[index];
+        ((contClosure) => {
+          const contentType = contClosure.dataset.contenttype;
+          switch (contentType) {
+            case "video":
+              console.log("video", contentType);
+              break;
+            case "image":
+              console.log("image", contentType);
+              break;
+          }
+        })(cont);
+      }
+
+      const a = {
+        id: "57b2b3a1-4375-4a8e-817e-9ed10323ea54",
+        timestamp: "2023-07-06T04:55:08.619Z",
+        actor: {
+          objectType: "Agent",
+          account: {
+            homePage: "https://www.bubblecon.io/",
+            name: "0/630644/13121/교육그룹/261/8000/Minjun Kim",
+          },
+          name: "Yejun Park",
+        },
+        verb: {
+          id: "http://adlnet.gov/expapi/verbs/experienced",
+        },
+        object: {
+          id: "bbc-activityId",
+        },
+        context: {
+          registration: "bbc-registration",
+          contextActivities: {
+            other: [
+              {
+                id: "http://id.tincanapi.com/activity/software/@rusticisoftware/cmi5/3.1.0",
+                definition: {
+                  name: {
+                    und: "@rusticisoftware/cmi5 (3.1.0)",
+                  },
+                  description: {
+                    en: "A JavaScript library implementing the cmi5 specification for AUs during runtime.",
+                  },
+                  type: "http://id.tincanapi.com/activitytype/source",
+                },
+              },
+            ],
+          },
+        },
+      };
+
+      const prepareStatement = (verb) => {
+        const stmt = {
+          id: v.uuidv4(),
+          timestamp: new Date().toISOString(),
+          actor: this._actor,
+          verb: this.getVerb(verb),
+          object: this.prepareObject(this.materialType, this.movieName, this.materialOrder),
+          context: this.context,
+        };
+        return stmt;
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .preview {
+        padding: 3.3333333333vh 3vw;
+        border: 1px solid #dbdbdb;
+        border-radius: 1vw;
+        font-size: 1.6vw;
+        line-height: 1.6;
+        white-space: pre-line;
+      }
+
+      .previewList:not(first-child) {
+        margin-top: 3.3333333333vh;
+      }
+
+      .text-wrap {
+        font-size: 1.2vw;
+      }
+
+      .text {
+        white-space: pre-wrap;
+      }
+
+      .conversation-wrapper {
+        list-style: none;
+      }
+      .conversation-wrap {
+        display: flex;
+        align-items: flex-start;
+      }
+      .img-wrap {
+        flex-shrink: 0;
+        width: 5vw;
+        margin-right: 2.6vw;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="preview"></div>
+    <script src="./preview.js"></script>
+  </body>
+</html>

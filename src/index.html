@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
+      p {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <span class="countNum">0</span>
+    <button class="increaseBtn">+1</button>
+    <button class="decreaseBtn">-1</button>
+    <p>保持 bǎochí</p>
+    <div>保持 bǎochí</div>
+    <script src="app.js"></script>
+    <script>
+      window.addEventListener("message", (event) => {
+        console.log("iframe1", event);
+      });
+      function getCookie(cookie_name) {
+        var x, y;
+        var val = document.cookie.split(";");
+
+        for (var i = 0; i < val.length; i++) {
+          x = val[i].substr(0, val[i].indexOf("="));
+          y = val[i].substr(val[i].indexOf("=") + 1);
+          x = x.replace(/^\s+|\s+$/g, ""); // 앞과 뒤의 공백 제거하기
+          if (x == cookie_name) {
+            return unescape(y); // unescape로 디코딩 후 값 리턴
+          }
+        }
+      }
+
+      window.addEventListener("beforeunload", (e) => {
+        e.preventDefault();
+        e.returnValue = "";
+        console.log("Zxcv");
+      });
+      window.addEventListener("beforeunload", (e) => {
+        e.preventDefault();
+        e.returnValue = "";
+        console.log("Qwer");
+      });
+      window.addEventListener("beforeunload", (e) => {
+        e.preventDefault();
+        e.returnValue = "";
+        console.log("Asdf");
+      });
+      console.log(getCookie("coook"));
+    </script>
+  </body>
+</html>

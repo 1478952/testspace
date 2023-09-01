@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!-- <input type="file" accept="video/*" id="videoInput" /> -->
+    <input type="input" accept="video/*" id="videoInput" />
+    <button onclick="getVideoDuration()">Get Duration</button>
+
+    <script>
+      function getVideoDuration() {
+        const input = document.getElementById("videoInput");
+        const file = input.files[0];
+        if (file) {
+          const video = document.createElement("video");
+          video.preload = "metadata";
+          video.onloadedmetadata = function () {
+            const duration = video.duration;
+            console.log("비디오 길이", duration);
+          };
+        } else {
+          console.log("error");
+        }
+      }
+
+      function getVideoDuration() {
+        const input = document.getElementById("videoInput");
+        const url = input.value;
+        if (url) {
+          const video = document.createElement("video");
+          video.src = url;
+          video.preload = "metadata";
+          video.onloadedmetadata = function () {
+            const duration = video.duration;
+            console.log("비디오 길이", duration);
+          };
+        } else {
+          console.log("error");
+        }
+      }
+    </script>
+  </body>
+</html>
